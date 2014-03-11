@@ -182,8 +182,8 @@
 		// webkit seems to render fonts lighter than firefox
 		context.font = (browser.webkit ? 'bold ' : '') + options.font;
 		context.fillStyle = options.background;
-		context.strokeStyle = options.background;
-		context.lineWidth = r;
+		//context.strokeStyle = options.background;
+		//context.lineWidth = r;
 
 		// bubble
 		context.beginPath();
@@ -198,20 +198,11 @@
         context.closePath();
         context.fill();
 
-		// bottom shadow
-		context.beginPath();
-		context.strokeStyle = "rgba(0,0,0,0.3)";
-		context.moveTo(left + radius / 2.0, bottom);
-		context.lineTo(right - radius / 2.0, bottom);
-		context.stroke();
-
 		// label
 		context.fillStyle = options.colour;
-		context.textAlign = "right";
-		context.textBaseline = "top";
+		context.textAlign = "center";
 
-		// unfortunately webkit/mozilla are a pixel different in text positioning
-		context.fillText(label, r === 2 ? 29 : 15, browser.mozilla ? 7*r : 6*r);
+		context.fillText(label, 8, 12)
 	};
 
 	var refreshFavicon = function(){
@@ -274,6 +265,10 @@
 
 	if(typeof define === 'function' && define.amd) {
 		define(Tinycon);
+	}
+
+	if(typeof module === 'object' && module.exports) {
+		module.exports = Tinycon
 	}
 
 })();

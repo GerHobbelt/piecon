@@ -202,7 +202,7 @@
 		context.fillStyle = options.colour;
 		context.textAlign = "center";
 
-		context.fillText(label, 8, 12)
+		context.fillText(label, r === 2 ? 16 : 8, 12 * r);
 	};
 
 	var refreshFavicon = function(){
